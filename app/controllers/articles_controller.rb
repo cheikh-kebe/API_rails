@@ -1,10 +1,10 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :update, :destroy]
-
+  before_action :authenticate_user!
+  
   # GET /articles
   def index
     @articles = Article.all
-
     render json: @articles
   end
 
@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
 
-    if @article.save
+    if @article.save 
       render json: @article, status: :created, location: @article
     else
       render json: @article.errors, status: :unprocessable_entity

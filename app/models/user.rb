@@ -7,4 +7,5 @@ class User < ApplicationRecord
         jwt_revocation_strategy: JwtDenylist
 
   validates :email, presence: true
+  has_many :articles
 end

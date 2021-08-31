@@ -14,6 +14,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def register_failed
-    render json: { message: "Hummmm Something went wrong." }
+    render json: { message: "Hummmm Something went wrong, please provide good info." }
   end
 end
