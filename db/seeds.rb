@@ -7,7 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 30.times do
   article = Article.create!(
+    user_id: Faker::Number.between(from: 1, to: 30),
     title: Faker::Games::Zelda.character,
+    content: Faker::Quote.yoda
+  )
+end
+
+10.times do
+  comment = Comment.create!(
+    article_id: Faker::Number.between(from: 1, to: 30),
     content: Faker::Quote.yoda
   )
 end
